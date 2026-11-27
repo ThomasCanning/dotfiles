@@ -1,4 +1,3 @@
--- bootstrap lazy so it gets installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,15 +10,4 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
-require ("lazy").setup({ { import = "tcanning.plugins" }, { import = "tcanning.plugins.lsp"} }, {
-  checker = {
-    enabled = true,
-    notify  = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
-
-
+require("lazy").setup("tcanning.plugins")

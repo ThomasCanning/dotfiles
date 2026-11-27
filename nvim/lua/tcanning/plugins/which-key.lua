@@ -1,13 +1,17 @@
 return {
+  -- pops up the available keys after you press the start of a shortcut
   "folke/which-key.nvim",
   event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 500
-  end,
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+    delay = 300, -- ms to wait before showing the popup
+    spec = {
+      -- group names shown in the popup
+      { "<leader>c", group = "comment" },
+      { "<leader>d", group = "diagnostics" },
+      { "<leader>e", group = "explorer" },
+      { "<leader>f", group = "find" },
+      { "<leader>l", group = "code (LSP)" },
+      { "<leader>n", group = "no highlight" },
+    },
   },
 }
